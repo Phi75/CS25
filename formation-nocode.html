@@ -47,11 +47,60 @@
                 <span class="text-xl font-bold" style="color: var(--text-dark);">LES COURS DU SOIR</span>
             </a>
             <div class="hidden md:flex items-center space-x-8">
-                <a href="formations.html" class="text-indigo-900 hover:text-yellow-500 transition font-medium">Formations</a>
+                <!-- Mega Menu Trigger -->
+                <div class="group relative">
+                    <a href="formations.html" class="font-bold text-yellow-600 transition flex items-center">
+                        Formations <i data-lucide="chevron-down" class="ml-1 h-4 w-4"></i>
+                    </a>
+                    <!-- Mega Menu Content -->
+                    <div class="mega-menu absolute top-full -left-1/2 transform translate-x-1/4 mt-2 w-screen max-w-5xl">
+                        <div class="bg-white rounded-2xl shadow-2xl border border-slate-100 p-8 grid grid-cols-4 gap-8">
+                            <!-- Column 1: Tech & Dev -->
+                            <div class="col-span-1">
+                                <h3 class="font-bold tracking-widest uppercase text-sm text-gray-400 mb-4">Tech & Dev</h3>
+                                <div class="space-y-4">
+                                    <a href="formation-html-css.html" class="flex items-start group"><p class="font-semibold text-indigo-900 group-hover:text-yellow-600">HTML & CSS</p></a>
+                                    <a href="formation-javascript.html" class="flex items-start group"><p class="font-semibold text-indigo-900 group-hover:text-yellow-600">Javascript</p></a>
+                                    <a href="formation-python.html" class="flex items-start group"><p class="font-semibold text-indigo-900 group-hover:text-yellow-600">Python</p></a>
+                                    <a href="formation-cybersecurite.html" class="flex items-start group"><p class="font-semibold text-indigo-900 group-hover:text-yellow-600">Cybersécurité</p></a>
+                                    <a href="formation-intelligence-artificielle.html" class="flex items-start group"><p class="font-semibold text-indigo-900 group-hover:text-yellow-600">Intelligence Artificielle</p></a>
+                                </div>
+                            </div>
+                             <!-- Column 2: Création & Digital -->
+                            <div class="col-span-1">
+                                <h3 class="font-bold tracking-widest uppercase text-sm text-gray-400 mb-4">Création & Digital</h3>
+                                <div class="space-y-4">
+                                     <a href="formation-nocode.html" class="flex items-start group"><p class="font-semibold text-yellow-600">No-Code</p></a>
+                                     <a href="formation-photoshop.html" class="flex items-start group"><p class="font-semibold text-indigo-900 group-hover:text-yellow-600">Adobe Photoshop</p></a>
+                                     <a href="formation-dataviz.html" class="flex items-start group"><p class="font-semibold text-indigo-900 group-hover:text-yellow-600">Data Visualisation</p></a>
+                                     <a href="formation-reseaux-sociaux.html" class="flex items-start group"><p class="font-semibold text-indigo-900 group-hover:text-yellow-600">Réseaux Sociaux</p></a>
+                                     <a href="formation-marketing-automatisation.html" class="flex items-start group"><p class="font-semibold text-indigo-900 group-hover:text-yellow-600">Marketing & Automatisation</p></a>
+                                </div>
+                            </div>
+                             <!-- Column 3: Business & Langues -->
+                            <div class="col-span-1">
+                                <h3 class="font-bold tracking-widest uppercase text-sm text-gray-400 mb-4">Business & Langues</h3>
+                                <div class="space-y-4">
+                                     <a href="formation-entrepreneuriat.html" class="flex items-start group"><p class="font-semibold text-indigo-900 group-hover:text-yellow-600">Entrepreneuriat</p></a>
+                                     <a href="formation-business-english.html" class="flex items-start group"><p class="font-semibold text-indigo-900 group-hover:text-yellow-600">Business English</p></a>
+                                     <a href="formation-fle.html" class="flex items-start group"><p class="font-semibold text-indigo-900 group-hover:text-yellow-600">Français Langue Étrangère</p></a>
+                                </div>
+                            </div>
+                            <!-- Column 4: Promo Block -->
+                            <div class="col-span-1 bg-indigo-900 rounded-xl p-6 flex flex-col justify-center text-white">
+                                <h3 class="font-serif text-2xl font-bold mb-2">Catalogue Complet</h3>
+                                <p class="text-sm text-indigo-200 mb-4">Explorez toutes nos formations certifiantes.</p>
+                                <a href="formations.html" class="font-semibold flex items-center group">Explorer <i data-lucide="arrow-right" class="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <a href="concept.html" class="text-indigo-900 hover:text-yellow-500 transition font-medium">Le Concept</a>
                 <a href="formateurs.html" class="text-indigo-900 hover:text-yellow-500 transition font-medium">Formateurs</a>
+                <a href="index.html#temoignages" class="text-indigo-900 hover:text-yellow-500 transition font-medium scroll-smooth">Avis</a>
                 <a href="contact.html" class="text-indigo-900 hover:text-yellow-500 transition font-medium">Contact</a>
             </div>
+            <a href="contact.html" class="hidden md:block cta-button font-bold px-6 py-3">Prendre un rendez-vous</a>
              <button id="mobile-menu-button" class="md:hidden text-indigo-900"><i data-lucide="menu"></i></button>
         </nav>
     </header>
