@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions Légales - LES COURS DU SOIR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg-main: #FFFBF5;
+            --text-dark: #1A237E;
+            --text-dark-blue: #2c3e50;
+            --accent-yellow: #FFD15B;
+            --accent-yellow-darker: #F9C444;
+            --accent-teal: #4DCCBD;
+            --neutral-white: #FFFFFF;
+            --neutral-border: #F0EAE1;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Manrope', sans-serif;
+        }
+        body { font-family: var(--font-sans); background-color: var(--bg-main); color: var(--text-dark); }
+        .font-serif { font-family: var(--font-serif); }
+        .header-scrolled { background-color: rgba(255, 251, 245, 0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .cta-button { background-color: var(--accent-yellow); color: var(--text-dark); border: 2px solid var(--text-dark); border-radius: 0.5rem; box-shadow: 4px 4px 0px var(--text-dark); transition: all 0.15s ease-out; }
+        .cta-button:hover { background-color: var(--accent-yellow-darker); transform: translate(-2px, -2px); box-shadow: 6px 6px 0px var(--text-dark); }
+        .cta-button:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--text-dark); }
+        .prose h2 { font-family: var(--font-serif); color: var(--text-dark); }
+        .prose h3 { font-family: var(--font-serif); color: var(--text-dark); }
+        .prose a { color: var(--accent-yellow-darker); text-decoration: underline; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3">
+                <img src="https://i.ibb.co/k2g7x0W/Logo-Les-1.png" alt="Logo Les Cours du Soir" class="h-12 w-12">
+                <span class="text-xl font-bold" style="color: var(--text-dark);">LES COURS DU SOIR</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="formations.html" class="text-indigo-900 hover:text-yellow-500 transition font-medium">Formations</a>
+                <a href="concept.html" class="text-indigo-900 hover:text-yellow-500 transition font-medium">Le Concept</a>
+                <a href="formateurs.html" class="text-indigo-900 hover:text-yellow-500 transition font-medium">Formateurs</a>
+                <a href="blog.html" class="text-indigo-900 hover:text-yellow-500 transition font-medium">Blog</a>
+                <a href="contact.html" class="text-indigo-900 hover:text-yellow-500 transition font-medium">Contact</a>
+            </div>
+            <a href="contact.html" class="hidden md:block cta-button font-bold px-6 py-3">Prendre un rendez-vous</a>
+            <button id="mobile-menu-button" class="md:hidden text-indigo-900"><i data-lucide="menu"></i></button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <a href="formations.html" class="block py-3 px-4 hover:bg-yellow-50">Formations</a>
+            <a href="concept.html" class="block py-3 px-4 hover:bg-yellow-50">Le Concept</a>
+            <a href="formateurs.html" class="block py-3 px-4 hover:bg-yellow-50">Formateurs</a>
+            <a href="blog.html" class="block py-3 px-4 hover:bg-yellow-50">Blog</a>
+            <a href="contact.html" class="block py-3 px-4 hover:bg-yellow-50">Contact</a>
+        </div>
+    </header>
+
+    <main class="bg-white">
+        <section class="pt-32 pb-16 md:pt-40 md:pb-20">
+            <div class="container mx-auto px-6">
+                <h1 class="font-serif text-4xl md:text-5xl font-bold text-center mb-4" style="color: var(--text-dark);">Mentions Légales</h1>
+            </div>
+        </section>
+
+        <section class="pb-20 md:pb-24">
+            <div class="container mx-auto px-6 prose prose-lg max-w-4xl text-indigo-800/90">
+                <h2>1. Éditeur du site</h2>
+                <p>Le site lescoursdusoir.fr est édité par :</p>
+                <p>
+                    <strong>LES COURS DU SOIR</strong><br>
+                    Forme juridique : SAS (Société par Actions Simplifiée)<br>
+                    Siège social : [Votre Adresse], 33600 Pessac, France<br>
+                    R.C.S. : Bordeaux 984 039 933<br>
+                    Capital social : [Montant] €<br>
+                    Adresse e-mail : <a href="mailto:contact@lescoursdusoir.fr">contact@lescoursdusoir.fr</a><br>
+                    Téléphone : 05 01 02 03 04<br>
+                    Directeur de la publication : [Nom du directeur]
+                </p>
+
+                <h2>2. Hébergement</h2>
+                <p>Le site est hébergé par :</p>
+                <p>
+                    <strong>[Nom de l'hébergeur]</strong><br>
+                    Adresse : [Adresse de l'hébergeur]<br>
+                    Téléphone : [Téléphone de l'hébergeur]
+                </p>
+
+                <h2>3. Propriété Intellectuelle</h2>
+                <p>L'ensemble de ce site (contenus, textes, images, vidéos, logos) constitue une œuvre protégée par la législation en vigueur sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques. La reproduction de tout ou partie de ce site sur un support électronique quel qu'il soit est formellement interdite sauf autorisation expresse du directeur de la publication.</p>
+
+                <h2>4. Données Personnelles</h2>
+                <p>Les informations recueillies via les formulaires de contact ou de candidature font l'objet d'un traitement informatique destiné à la gestion des demandes des utilisateurs. Conformément à la loi "Informatique et Libertés" et au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression des données vous concernant. Pour l'exercer, veuillez consulter notre <a href="confidentialite.html">Politique de Confidentialité</a> ou nous contacter à l'adresse e-mail mentionnée ci-dessus.</p>
+
+                <h2>5. Cookies</h2>
+                <p>Le site lescoursdusoir.fr peut être amené à vous demander l’acceptation des cookies pour des besoins de statistiques et d'affichage. Un cookie est une information déposée sur votre disque dur par le serveur du site que vous visitez. Pour plus d'informations, veuillez consulter notre <a href="confidentialite.html">Politique de Confidentialité</a>.</p>
+
+                <h2>6. Limitation de responsabilité</h2>
+                <p>LES COURS DU SOIR s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées sur ce site. Toutefois, l'entreprise décline toute responsabilité en cas d'erreur, d'imprécision ou d'omission dans ces informations. Les informations contenues dans le site sont non-contractuelles et sujettes à modification sans préavis.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer style="background-color: var(--text-dark-blue);" class="text-white">
+        <div class="container mx-auto px-6 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                <div class="md:col-span-5 lg:col-span-4">
+                    <h3 class="text-base font-semibold uppercase tracking-wider text-gray-400">S'inscrire à la newsletter</h3>
+                    <p class="mt-4 text-gray-300">Recevez conseils, actus et offres exclusives.</p>
+                    <form class="mt-4 flex">
+                        <input type="email" placeholder="Email" class="w-full px-4 py-3 rounded-l-md border-0 text-gray-800 focus:ring-2 focus:ring-yellow-400" required>
+                        <button type="submit" class="bg-yellow-400 text-gray-900 font-bold px-6 py-3 rounded-r-md hover:bg-yellow-300 transition-colors">S'inscrire</button>
+                    </form>
+                </div>
+                <div class="hidden lg:block lg:col-span-1"></div>
+                <div class="md:col-span-7 lg:col-span-7 grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div>
+                        <h3 class="text-base font-semibold uppercase tracking-wider text-gray-400">Formations</h3>
+                        <ul class="mt-4 space-y-2">
+                            <li><a href="formations.html" class="text-gray-300 hover:text-white">Informatique</a></li>
+                            <li><a href="formations.html" class="text-gray-300 hover:text-white">Digital</a></li>
+                            <li><a href="formations.html" class="text-gray-300 hover:text-white">Langues</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-semibold uppercase tracking-wider text-gray-400">Ressources</h3>
+                        <ul class="mt-4 space-y-2">
+                            <li><a href="blog.html" class="text-gray-300 hover:text-white">Blog</a></li>
+                            <li><a href="index.html#faq" class="text-gray-300 hover:text-white">FAQ</a></li>
+                            <li><a href="contact.html" class="text-gray-300 hover:text-white">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-semibold uppercase tracking-wider text-gray-400">À propos</h3>
+                        <ul class="mt-4 space-y-2">
+                            <li><a href="formateurs.html" class="text-gray-300 hover:text-white">Équipe</a></li>
+                            <li><a href="concept.html" class="text-gray-300 hover:text-white">Mission</a></li>
+                        </ul>
+                    </div>
+                     <div>
+                        <h3 class="text-base font-semibold uppercase tracking-wider text-gray-400">Légal</h3>
+                        <ul class="mt-4 space-y-2">
+                             <li><a href="mentions-legales.html" class="text-gray-300 hover:text-white">Mentions</a></li>
+                             <li><a href="cgu.html" class="text-gray-300 hover:text-white">CGU</a></li>
+                             <li><a href="confidentialite.html" class="text-gray-300 hover:text-white">Confidentialité</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-16 pt-8 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-center">
+                 <div class="flex items-center text-gray-400">
+                    <img src="https://i.ibb.co/k2g7x0W/Logo-Les-1.png" alt="Logo Les Cours du Soir" class="h-8 w-8 mr-3">
+                    <span>Tous droits réservés © 2025</span>
+                </div>
+                <div class="flex space-x-6 mt-4 sm:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="instagram"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="linkedin"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        document.getElementById('mobile-menu-button').addEventListener('click', () => { document.getElementById('mobile-menu').classList.toggle('hidden'); });
+        window.addEventListener('scroll', () => { document.getElementById('header').classList.toggle('header-scrolled', window.scrollY > 50); });
+    </script>
+</body>
+</html>

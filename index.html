@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LES COURS DU SOIR - Formations d'Excellence à Bordeaux</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg-main: #FFFBF5;
+            --text-dark: #1A237E;
+            --text-dark-blue: #2c3e50; /* A slightly softer navy */
+            --accent-yellow: #FFD15B;
+            --accent-yellow-darker: #F9C444;
+            --accent-red: #FF6B6B;
+            --accent-teal: #4DCCBD;
+            --neutral-white: #FFFFFF;
+            --neutral-border: #F0EAE1;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Manrope', sans-serif;
+        }
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+        }
+        .font-serif {
+            font-family: var(--font-serif);
+        }
+        .header-scrolled {
+            background-color: rgba(255, 251, 245, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .cta-button {
+            background-color: var(--accent-yellow);
+            color: var(--text-dark);
+            border: 2px solid var(--text-dark);
+            border-radius: 0.5rem;
+            box-shadow: 4px 4px 0px var(--text-dark);
+            transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, background-color 0.15s ease-out;
+        }
+        .cta-button:hover {
+            background-color: var(--accent-yellow-darker);
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px var(--text-dark);
+        }
+        .cta-button:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0 0 0 var(--text-dark);
+        }
+        .formation-card {
+            background-color: var(--neutral-white);
+            border: 1px solid var(--neutral-border);
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(26, 35, 126, 0.05);
+            transition: all 0.3s ease;
+        }
+        .formation-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(26, 35, 126, 0.1);
+        }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] summary ~ * { animation: sweep .5s ease-in-out; }
+        @keyframes sweep {
+            0%    {opacity: 0; transform: translateY(-10px)}
+            100%  {opacity: 1; transform: translateY(0)}
+        }
+        details[open] summary i { transform: rotate(180deg); }
+        .form-input, .form-textarea, .form-select {
+            background-color: var(--neutral-white);
+            border: 1px solid #D9DDEE; /* A light blue-gray border */
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            width: 100%;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            color: var(--text-dark);
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+        .form-select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+        }
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
+            outline: none;
+            border-color: var(--text-dark);
+            box-shadow: 0 0 0 3px rgba(26, 35, 126, 0.1);
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+        .mega-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease-out;
+        }
+        .group:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .scroller {
+            max-width: 100%;
+        }
+        .scroller__inner {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 2.5rem; /* Espace augmenté pour une meilleure lisibilité */
+            animation: scroll 120s linear infinite;
+        }
+        .scroller:hover .scroller__inner {
+            animation-play-state: paused;
+        }
+        @keyframes scroll {
+            to { transform: translate(calc(-100% - 2.5rem)); }
+        }
+        .logo-item img { filter: grayscale(100%); opacity: 0.6; transition: all 0.3s ease; }
+        .logo-item:hover img { filter: grayscale(0%); opacity: 1; }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-main); }
+        ::-webkit-scrollbar-thumb { background: var(--accent-yellow); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-yellow-darker); }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" zoomAndPan="magnify" viewBox="0 0 60 60" preserveAspectRatio="xMidYMid meet" version="1.0" class="h-12 w-12"><defs><clipPath id="628d04ab9c"><path d="M 15.75 0 L 44.25 0 C 52.949219 0 60 7.050781 60 15.75 L 60 44.25 C 60 52.949219 52.949219 60 44.25 60 L 15.75 60 C 7.050781 60 0 52.949219 0 44.25 L 0 15.75 C 0 7.050781 7.050781 0 15.75 0 Z M 15.75 0 " clip-rule="nonzero"/></clipPath><clipPath id="b40f61ce87"><path d="M 5.503906 5.503906 L 54.496094 5.503906 L 54.496094 54.496094 L 5.503906 54.496094 Z M 5.503906 5.503906 " clip-rule="nonzero"/></clipPath><clipPath id="bb1df947ec"><path d="M 30 5.503906 C 16.46875 5.503906 5.503906 16.46875 5.503906 30 C 5.503906 43.53125 16.46875 54.496094 30 54.496094 C 43.53125 54.496094 54.496094 43.53125 54.496094 30 C 54.496094 16.46875 43.53125 5.503906 30 5.503906 Z M 30 5.503906 " clip-rule="nonzero"/></clipPath><clipPath id="fe175d408c"><path d="M 10.292969 17.878906 L 38.042969 17.878906 L 38.042969 59.878906 L 10.292969 59.878906 Z M 10.292969 17.878906 " clip-rule="nonzero"/></clipPath></defs><g clip-path="url(#628d04ab9c)"><rect x="-6" width="72" fill="#ffffff" y="-6" height="72" fill-opacity="1"/></g><g clip-path="url(#b40f61ce87)"><g clip-path="url(#bb1df947ec)"><path fill="#fec446" d="M 5.503906 5.503906 L 54.496094 5.503906 L 54.496094 54.496094 L 5.503906 54.496094 Z M 5.503906 5.503906 " fill-opacity="1" fill-rule="nonzero"/></g></g><g clip-path="url(#fe175d408c)"><path fill="#000000" d="M 15.042969 46.859375 L 31.660156 46.859375 L 33.59375 43.722656 L 13.109375 43.722656 Z M 6.785156 92.921875 L 39.917969 92.921875 L 39.917969 93.992188 L 6.785156 93.992188 Z M -6.289062 89.703125 L 53.101562 89.703125 L 53.046875 90.777344 L -6.34375 90.777344 Z M 23.371094 51.246094 C 23.917969 51.246094 24.417969 51.46875 24.777344 51.832031 C 25.140625 52.191406 25.363281 52.691406 25.363281 53.238281 L 25.363281 57.75 L 21.378906 57.75 L 21.378906 53.238281 C 21.378906 52.691406 21.601562 52.195312 21.960938 51.832031 L 21.964844 51.832031 C 22.324219 51.46875 22.824219 51.246094 23.371094 51.246094 Z M 23.371094 52.320312 C 23.117188 52.320312 22.886719 52.421875 22.71875 52.589844 C 22.554688 52.753906 22.449219 52.984375 22.449219 53.238281 L 22.449219 56.679688 L 24.289062 56.679688 L 24.289062 53.238281 C 24.289062 52.984375 24.1875 52.757812 24.019531 52.589844 C 23.851562 52.421875 23.621094 52.320312 23.371094 52.320312 Z M 2.785156 86.597656 L 10.761719 86.597656 L 14.28125 47.65625 L 11.695312 43.464844 L 11.191406 42.648438 L 12.640625 42.648438 L 12.640625 38.617188 L 14.945312 38.617188 L 14.945312 34.460938 L 15.890625 34.460938 L 15.890625 26.773438 L 15.632812 26.773438 L 15.632812 25.699219 L 17.0625 25.699219 C 17.105469 25.117188 17.265625 24.652344 17.511719 24.265625 C 17.832031 23.769531 18.277344 23.429688 18.78125 23.136719 C 19.367188 22.796875 19.9375 22.589844 20.480469 22.394531 C 21.480469 22.035156 22.351562 21.722656 22.828125 20.46875 L 22.828125 17.800781 L 23.898438 17.800781 L 23.898438 20.453125 C 24.371094 21.722656 25.238281 22.035156 26.238281 22.398438 C 26.769531 22.589844 27.335938 22.796875 27.925781 23.136719 C 28.429688 23.429688 28.871094 23.769531 29.191406 24.265625 C 29.4375 24.652344 29.601562 25.117188 29.640625 25.699219 L 31.074219 25.699219 L 31.074219 26.773438 L 30.867188 26.773438 L 30.867188 34.460938 L 31.757812 34.460938 L 31.757812 38.617188 L 34.0625 38.617188 L 34.0625 42.648438 L 35.515625 42.648438 L 35.007812 43.464844 L 32.421875 47.65625 L 35.941406 86.597656 L 43.917969 86.597656 L 43.917969 87.667969 L 2.785156 87.667969 Z M 11.832031 86.597656 L 19.292969 86.597656 L 19.292969 77.464844 C 19.292969 76.34375 19.753906 75.324219 20.492188 74.585938 C 21.230469 73.847656 22.25 73.390625 23.371094 73.390625 C 24.492188 73.390625 25.511719 73.847656 26.25 74.585938 C 26.988281 75.324219 27.445312 76.34375 27.445312 77.464844 L 27.445312 86.597656 L 34.871094 86.597656 L 31.371094 47.929688 L 15.332031 47.929688 Z M 30.6875 42.648438 L 30.6875 40.605469 L 31.757812 40.605469 L 31.757812 42.648438 L 32.988281 42.648438 L 32.988281 39.6875 L 13.714844 39.6875 L 13.714844 42.648438 L 14.945312 42.648438 L 14.945312 40.605469 L 16.019531 40.605469 L 16.019531 42.648438 Z M 28.566406 25.699219 C 28.53125 25.34375 28.433594 25.070312 28.289062 24.84375 C 28.082031 24.519531 27.761719 24.277344 27.386719 24.0625 C 26.878906 23.765625 26.363281 23.578125 25.875 23.402344 C 24.886719 23.046875 24.007812 22.726562 23.363281 21.761719 C 22.71875 22.726562 21.832031 23.042969 20.839844 23.402344 C 20.351562 23.578125 19.828125 23.765625 19.316406 24.0625 C 18.945312 24.277344 18.621094 24.519531 18.414062 24.84375 C 18.269531 25.070312 18.171875 25.34375 18.136719 25.699219 Z M 29.796875 34.460938 L 29.796875 26.773438 L 29.226562 26.773438 L 29.226562 34.460938 Z M 28.15625 34.460938 L 28.15625 26.773438 L 26.207031 26.773438 L 26.207031 34.460938 Z M 25.132812 34.460938 L 25.132812 26.773438 L 21.570312 26.773438 L 21.570312 34.460938 Z M 20.5 34.460938 L 20.5 26.773438 L 18.4375 26.773438 L 18.4375 34.460938 Z M 17.363281 34.460938 L 17.363281 26.773438 L 16.964844 26.773438 L 16.964844 34.460938 Z M 16.019531 38.617188 L 30.6875 38.617188 L 30.6875 35.53125 L 16.019531 35.53125 Z M 20.367188 86.597656 L 26.375 86.597656 L 26.375 77.464844 C 26.375 76.640625 26.035156 75.890625 25.492188 75.34375 C 24.945312 74.800781 24.195312 74.460938 23.371094 74.460938 C 22.542969 74.460938 21.792969 74.800781 21.25 75.34375 C 20.707031 75.890625 20.367188 76.640625 20.367188 77.464844 L 20.367188 86.597656 " fill-opacity="1" fill-rule="nonzero"/></g></svg>
+                <span class="text-xl font-bold" style="color: var(--text-dark);">LES COURS DU SOIR</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <!-- Mega Menu Trigger -->
+                <div class="group relative">
+                    <a href="formations.html" class="text-indigo-900 hover:text-yellow-500 transition font-medium flex items-center">
+                        Formations <i data-lucide="chevron-down" class="ml-1 h-4 w-4"></i>
+                    </a>
+                    <!-- Mega Menu Content -->
+                    <div class="mega-menu absolute top-full -left-1/2 transform translate-x-1/4 mt-2 w-screen max-w-5xl">
+                        <div class="bg-white rounded-2xl shadow-2xl border border-slate-100 p-8 grid grid-cols-4 gap-8">
+                            <!-- Column 1: Tech & Dev -->
+                            <div class="col-span-1">
+                                <h3 class="font-bold tracking-widest uppercase text-sm text-gray-400 mb-4">Tech & Dev</h3>
+                                <div class="space-y-4">
+                                    <a href="formation-html-css.html" class="flex items-start group"><p class="font-semibold text-indigo-900 group-hover:text-yellow-600">HTML & CSS</p></a>
+                                    <a href="formation-javascript.html" class="flex items-start group"><p class="font-semibold text-indigo-900 group-hover:text-yellow-600">Javascript</p></a>
+                                    <a href="formation-python.html" class="flex items-start group"><p class="font-semibold text-indigo-900 group-hover:text-yellow-600">Python</p></a>
+                                    <a href="formation-cybersecurite.html" class="flex items-start group"><p class="font-semibold text-indigo-900 group-hover:text-yellow-600">Cybersécurité</p></a>
+                                    <a href="formation-intelligence-artificielle.html" class="flex items-start group"><p class="font-semibold text-indigo-900 group-hover:text-yellow-600">Intelligence Artificielle</p></a>
+                                </div>
+                            </div>
+                             <!-- Column 2: Création & Digital -->
+                            <div class="col-span-1">
+                                <h3 class="font-bold tracking-widest uppercase text-sm text-gray-400 mb-4">Création & Digital</h3>
+                                <div class="space-y-4">
+                                     <a href="formation-nocode.html" class="flex items-start group"><p class="font-semibold text-indigo-900 group-hover:text-yellow-600">No-Code</p></a>
+                                     <a href="formation-photoshop.html" class="flex items-start group"><p class="font-semibold text-indigo-900 group-hover:text-yellow-600">Adobe Photoshop</p></a>
+                                     <a href="formation-dataviz.html" class="flex items-start group"><p class="font-semibold text-indigo-900 group-hover:text-yellow-600">Data Visualisation</p></a>
+                                     <a href="formation-reseaux-sociaux.html" class="flex items-start group"><p class="font-semibold text-indigo-900 group-hover:text-yellow-600">Réseaux Sociaux</p></a>
+                                     <a href="formation-marketing-automatisation.html" class="flex items-start group"><p class="font-semibold text-indigo-900 group-hover:text-yellow-600">Marketing & Automatisation</p></a>
+                                </div>
+                            </div>
+                             <!-- Column 3: Business & Langues -->
+                            <div class="col-span-1">
+                                <h3 class="font-bold tracking-widest uppercase text-sm text-gray-400 mb-4">Business & Langues</h3>
+                                <div class="space-y-4">
+                                     <a href="formation-entrepreneuriat.html" class="flex items-start group"><p class="font-semibold text-indigo-900 group-hover:text-yellow-600">Entrepreneuriat</p></a>
+                                     <a href="formation-business-english.html" class="flex items-start group"><p class="font-semibold text-indigo-900 group-hover:text-yellow-600">Business English</p></a>
+                                     <a href="formation-fle.html" class="flex items-start group"><p class="font-semibold text-indigo-900 group-hover:text-yellow-600">Français Langue Étrangère</p></a>
+                                </div>
+                            </div>
+                            <!-- Column 4: Promo Block -->
+                            <div class="col-span-1 bg-indigo-900 rounded-xl p-6 flex flex-col justify-center text-white">
+                                <h3 class="font-serif text-2xl font-bold mb-2">Catalogue Complet</h3>
+                                <p class="text-sm text-indigo-200 mb-4">Explorez toutes nos formations certifiantes.</p>
+                                <a href="formations.html" class="font-semibold flex items-center group">Explorer <i data-lucide="arrow-right" class="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="concept.html" class="text-indigo-900 hover:text-yellow-500 transition font-medium">Le Concept</a>
+                <a href="formateurs.html" class="text-indigo-900 hover:text-yellow-500 transition font-medium">Formateurs</a>
+                <a href="#temoignages" class="text-indigo-900 hover:text-yellow-500 transition font-medium">Avis</a>
+                <a href="contact.html" class="text-indigo-900 hover:text-yellow-500 transition font-medium">Contact</a>
+            </div>
+            <a href="contact.html" class="hidden md:block cta-button font-bold px-6 py-3">Prendre un rendez-vous</a>
+            <button id="mobile-menu-button" class="md:hidden text-indigo-900">
+                <i data-lucide="menu"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <a href="formations.html" class="block py-3 px-4 hover:bg-yellow-50">Formations</a>
+            <a href="concept.html" class="block py-3 px-4 hover:bg-yellow-50">Le Concept</a>
+            <a href="formateurs.html" class="block py-3 px-4 hover:bg-yellow-50">Formateurs</a>
+            <a href="#temoignages" class="block py-3 px-4 hover:bg-yellow-50">Avis</a>
+            <a href="contact.html" class="block py-3 px-4 hover:bg-yellow-50">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="pt-32 pb-16 md:pt-48 md:pb-24">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-center md:text-left">
+                    <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6" style="color: var(--text-dark);">
+                        Apprenez, progressez, <br/> réussissez <span style="color: var(--accent-red);">ensemble.</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-indigo-800/80 max-w-xl mx-auto md:mx-0 mb-8">
+                        À Bordeaux, développez vos compétences après votre journée de travail. Des formations intensives et certifiantes dans des lieux inspirants.
+                    </p>
+                    <a href="formations.html" class="cta-button font-bold text-lg px-8 py-4 inline-block">
+                        Découvrir nos formations
+                    </a>
+                </div>
+                 <div class="hidden md:block">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Étudiants collaborant en soirée" class="rounded-2xl shadow-2xl w-full h-auto object-cover">
+                 </div>
+            </div>
+        </section>
+
+        <!-- Logos Partenaires -->
+        <div class="bg-white py-12">
+            <div class="container mx-auto px-6">
+                <div class="scroller overflow-hidden" data-animated="true">
+                    <div class="scroller__inner">
+                        <div class="logo-item flex-shrink-0" title="Microsoft"><img src="https://cdn.worldvectorlogo.com/logos/microsoft-5.svg" alt="Microsoft" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Microsoft Azure"><img src="https://cdn.worldvectorlogo.com/logos/azure-1.svg" alt="Microsoft Azure" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Google"><img src="https://cdn.worldvectorlogo.com/logos/google-1-1.svg" alt="Google" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Google Ads"><img src="https://cdn.worldvectorlogo.com/logos/google-ads-2.svg" alt="Google Ads" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Adobe"><img src="https://cdn.worldvectorlogo.com/logos/adobe-2.svg" alt="Adobe" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Adobe Photoshop"><img src="https://cdn.worldvectorlogo.com/logos/adobe-photoshop-2.svg" alt="Adobe Photoshop" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Adobe Indesign"><img src="https://cdn.worldvectorlogo.com/logos/adobe-indesign-cc-icon.svg" alt="Adobe Indesign" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Python"><img src="https://cdn.worldvectorlogo.com/logos/python-5.svg" alt="Python" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Visual Studio Code"><img src="https://cdn.worldvectorlogo.com/logos/visual-studio-code-1.svg" alt="VS Code" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="CompTIA CySA+"><img src="https://cdn.worldvectorlogo.com/logos/comptia.svg" alt="CompTIA" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Microsoft Excel"><img src="https://cdn.worldvectorlogo.com/logos/excel-4.svg" alt="Excel" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="France Éducation international"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-22.47285 -9 194.7647 54" class="h-10"><path d="M23.566 1.398l-9.495 9.504h9.495V1.398 4zm-9.496 9.504L4.574 1.398v9.504zM14.049 0v36m9.517-15.596L14.071 10.9v13.625l9.495 9.504zm-18.991 0l9.496-9.504v13.625l-9.496 9.504zM.5 10.9v13.57h4.074v-4.066L14.07 10.9zm13.57 0l9.495 9.504v4.066h4.075V10.9z" fill="none" stroke="#20808d" stroke-miterlimit="10"/><path d="M55.46 13.028c.593-1.109 1.422-1.963 2.491-2.564 1.067-.599 2.319-.899 3.755-.899s2.625.295 3.62.886c.996.591 1.741 1.374 2.234 2.349.493.976.74 2.045.74 3.207v1.61H57.129c.09 1.396.561 2.506 1.413 3.329.852.824 1.996 1.235 3.433 1.235 1.166 0 2.06-.237 2.678-.711.62-.474 1.072-1.131 1.36-1.973h2.558c-.341 1.306-1.036 2.439-2.086 3.396-1.049.958-2.553 1.436-4.509 1.436-1.472 0-2.769-.3-3.891-.899-1.121-.599-1.988-1.454-2.598-2.564-.61-1.11-.915-2.416-.915-3.92s.296-2.809.889-3.919h-.001zm10.149 2.576c0-1.217-.314-2.169-.942-2.859-.628-.689-1.615-1.033-2.962-1.033-1.256 0-2.284.335-3.082 1.006-.799.671-1.288 1.634-1.467 2.886zm6.047-5.637v2.228c0 .126.063.188.189.188.072 0 .125-.018.162-.054.037-.036.072-.107.107-.214.466-1.467 1.624-2.201 3.473-2.201h1.184v2.415h-1.535c-1.203 0-2.1.286-2.693.859s-.889 1.512-.889 2.819v7.919h-2.423V9.966h2.425zm19.342 11.019c-.637 1.118-1.463 1.955-2.477 2.509-1.014.554-2.105.832-3.271.832-2.297 0-3.913-.912-4.846-2.738-.072-.142-.162-.214-.269-.214-.107 0-.162.054-.162.161v7.489H77.55V9.968h2.423v2.389c0 .107.054.161.162.161.108 0 .197-.072.269-.214.933-1.826 2.549-2.738 4.846-2.738 1.166 0 2.257.278 3.271.832 1.014.554 1.839 1.391 2.477 2.51.637 1.118.956 2.466.956 4.039 0 1.573-.319 2.921-.956 4.04zm-2.8-7.892c-.889-.922-2.06-1.383-3.513-1.383-1.453 0-2.625.461-3.513 1.383-.889.922-1.215 2.206-1.215 3.852s.326 2.931 1.215 3.852c.889.922 2.06 1.383 3.513 1.383 1.453 0 2.625-.46 3.513-1.383.889-.922 1.333-2.206 1.333-3.852s-.444-2.93-1.333-3.852zm7.272-8.496v19.327h-2.423V4.6h2.423zm1.995 8.429c.592-1.109 1.422-1.963 2.491-2.564 1.067-.599 2.319-.899 3.754-.899s2.626.295 3.621.886c.996.591 1.741 1.374 2.234 2.349.494.976.74 2.045.74 3.207v1.61H99.134c.09 1.396.561 2.506 1.413 3.329.852.824 1.996 1.235 3.433 1.235 1.166 0 2.059-.237 2.678-.711.62-.474 1.072-1.131 1.36-1.973h2.558c-.341 1.306-1.037 2.439-2.086 3.396-1.049.958-2.553 1.436-4.509 1.436-1.472 0-2.769-.3-3.891-.899-1.121-.599-1.988-1.454-2.598-2.564-.61-1.11-.915-2.416-.915-3.92s.296-2.809.889-3.919h-.001zm10.149 2.576c0-1.217-.314-2.169-.942-2.859-.628-.689-1.615-1.033-2.962-1.033-1.255 0-2.284.335-3.082 1.006-.799.671-1.287 1.634-1.467 2.886zm1.613 7.785l5.545-6.846-4.549-6.039v-.537h2.665l3.797 5.207 4.092-5.207h2.718v.564l-5.222 6.416 4.819 6.442v.537h-2.611l-4.119-5.61-4.414 5.61h-2.719v-.537zm17.786-17.965v3.021h-2.83V5.423zm-.147 18.503h-2.424V9.967h2.424zm.764-13.959h2.636V6.209h2.424v3.758h2.774l.681 2.046h-3.455v6.678c0 .912-.023 1.588-.068 2.027-.045.439-.067.703-.067.792 0 .126.035.224.107.295.072.072.17.107.297.107.089 0 .354-.022.794-.067.439-.045 1.117-.067 2.033-.067h.942v2.147h-1.884c-1.544 0-2.693-.375-3.446-1.128-.753-.752-1.131-1.896-1.131-3.436v-7.349h-2.635V9.966h-.002zm8.564 0h2.47l4.011 11.711c.055.144.14.333.415.333.275 0 .36-.19.414-.333l4.011-11.711h2.304v.537l-5.018 15.059c-.431 1.289-1.036 2.188-1.816 2.698-.781.51-1.688.765-3.197.765h-2.584v-2.147h1.966c.628 0 1.139.022 1.534.067.394.045.646.067.754.067.305 0 .511-.134.62-.402l.754-2.04c.09-.214.098-.375.027-.484-.036-.072-.08-.117-.134-.134-.054-.018-.135-.027-.242-.027h-1.642l-4.645-13.958h-.002zM53.032 21.009c-.637 1.118-1.463 1.955-2.477 2.509-1.014.554-2.105.832-3.271.832-2.297 0-3.913-.912-4.846-2.738-.072-.142-.162-.214-.269-.214-.107 0-.162.054-.162.161v7.489h-2.423V9.991h2.423v2.389c0 .107.054.161.162.161.108 0 .197-.072.269-.214.932-1.826 2.549-2.738 4.846-2.738 1.166 0 2.257.278 3.271.832 1.014.554 1.839 1.391 2.477 2.509.637 1.118.956 2.466.956 4.04 0 1.574-.319 2.921-.956 4.039zm-2.8-7.892c-.889-.922-2.06-1.383-3.513-1.383-1.453 0-2.625.461-3.513 1.383-.889.922-1.215 2.206-1.215 3.852s.326 2.931 1.215 3.852c.889.922 2.06 1.383 3.513 1.383 1.453 0 2.625-.46 3.513-1.383.889-.922 1.333-2.206 1.333-3.852s-.444-2.93-1.333-3.852z" fill="#13343b"/></svg></div>
+                        <div class="logo-item flex-shrink-0" title="TOEIC"><img src="https://cdn.worldvectorlogo.com/logos/toeic.svg" alt="TOEIC" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Amazon Web Services (AWS)"><img src="https://cdn.worldvectorlogo.com/logos/aws-2.svg" alt="AWS" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Cisco"><img src="https://cdn.worldvectorlogo.com/logos/cisco-2.svg" alt="Cisco" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Tableau"><img src="https://cdn.worldvectorlogo.com/logos/tableau-software.svg" alt="Tableau" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="OpenAI (ChatGPT)"><img src="https://cdn.worldvectorlogo.com/logos/openai-2.svg" alt="OpenAI" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Zapier"><img src="https://cdn.worldvectorlogo.com/logos/zapier.svg" alt="Zapier" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Docker"><img src="https://cdn.worldvectorlogo.com/logos/docker.svg" alt="Docker" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Perplexity AI"><img src="https://cdn.worldvectorlogo.com/logos/perplexity-ai.svg" alt="Perplexity AI" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="ANSSI"><img src="https://cdn.worldvectorlogo.com/logos/anssi.svg" alt="ANSSI" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Cambridge English"><img src="https://cdn.worldvectorlogo.com/logos/cambridge-english-language-assessment.svg" alt="Cambridge English" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Notion"><img src="https://cdn.worldvectorlogo.com/logos/notion-1.svg" alt="Notion" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="n8n"><img src="https://cdn.worldvectorlogo.com/logos/n8n.svg" alt="n8n" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Figma"><img src="https://cdn.worldvectorlogo.com/logos/figma-1.svg" alt="Figma" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="SEMrush"><img src="https://cdn.worldvectorlogo.com/logos/semrush.svg" alt="SEMrush" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="(ISC)²"><img src="https://cdn.worldvectorlogo.com/logos/isc-2.svg" alt="(ISC)²" class="h-10"></div>
+                        <!-- Duplicated logos for seamless scroll -->
+                        <div class="logo-item flex-shrink-0" title="Microsoft"><img src="https://cdn.worldvectorlogo.com/logos/microsoft-5.svg" alt="Microsoft" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Microsoft Azure"><img src="https://cdn.worldvectorlogo.com/logos/azure-1.svg" alt="Microsoft Azure" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Google"><img src="https://cdn.worldvectorlogo.com/logos/google-1-1.svg" alt="Google" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Google Ads"><img src="https://cdn.worldvectorlogo.com/logos/google-ads-2.svg" alt="Google Ads" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Adobe"><img src="https://cdn.worldvectorlogo.com/logos/adobe-2.svg" alt="Adobe" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Adobe Photoshop"><img src="https://cdn.worldvectorlogo.com/logos/adobe-photoshop-2.svg" alt="Adobe Photoshop" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Adobe Indesign"><img src="https://cdn.worldvectorlogo.com/logos/adobe-indesign-cc-icon.svg" alt="Adobe Indesign" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Python"><img src="https://cdn.worldvectorlogo.com/logos/python-5.svg" alt="Python" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Visual Studio Code"><img src="https://cdn.worldvectorlogo.com/logos/visual-studio-code-1.svg" alt="VS Code" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="CompTIA CySA+"><img src="https://cdn.worldvectorlogo.com/logos/comptia.svg" alt="CompTIA" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Microsoft Excel"><img src="https://cdn.worldvectorlogo.com/logos/excel-4.svg" alt="Excel" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="France Éducation international"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-22.47285 -9 194.7647 54" class="h-10"><path d="M23.566 1.398l-9.495 9.504h9.495V1.398 4zm-9.496 9.504L4.574 1.398v9.504zM14.049 0v36m9.517-15.596L14.071 10.9v13.625l9.495 9.504zm-18.991 0l9.496-9.504v13.625l-9.496 9.504zM.5 10.9v13.57h4.074v-4.066L14.07 10.9zm13.57 0l9.495 9.504v4.066h4.075V10.9z" fill="none" stroke="#20808d" stroke-miterlimit="10"/><path d="M55.46 13.028c.593-1.109 1.422-1.963 2.491-2.564 1.067-.599 2.319-.899 3.755-.899s2.625.295 3.62.886c.996.591 1.741 1.374 2.234 2.349.493.976.74 2.045.74 3.207v1.61H57.129c.09 1.396.561 2.506 1.413 3.329.852.824 1.996 1.235 3.433 1.235 1.166 0 2.06-.237 2.678-.711.62-.474 1.072-1.131 1.36-1.973h2.558c-.341 1.306-1.036 2.439-2.086 3.396-1.049.958-2.553 1.436-4.509 1.436-1.472 0-2.769-.3-3.891-.899-1.121-.599-1.988-1.454-2.598-2.564-.61-1.11-.915-2.416-.915-3.92s.296-2.809.889-3.919h-.001zm10.149 2.576c0-1.217-.314-2.169-.942-2.859-.628-.689-1.615-1.033-2.962-1.033-1.256 0-2.284.335-3.082 1.006-.799.671-1.288 1.634-1.467 2.886zm6.047-5.637v2.228c0 .126.063.188.189.188.072 0 .125-.018.162-.054.037-.036.072-.107.107-.214.466-1.467 1.624-2.201 3.473-2.201h1.184v2.415h-1.535c-1.203 0-2.1.286-2.693.859s-.889 1.512-.889 2.819v7.919h-2.423V9.966h2.425zm19.342 11.019c-.637 1.118-1.463 1.955-2.477 2.509-1.014.554-2.105.832-3.271.832-2.297 0-3.913-.912-4.846-2.738-.072-.142-.162-.214-.269-.214-.107 0-.162.054-.162.161v7.489H77.55V9.968h2.423v2.389c0 .107.054.161.162.161.108 0 .197-.072.269-.214.933-1.826 2.549-2.738 4.846-2.738 1.166 0 2.257.278 3.271.832 1.014.554 1.839 1.391 2.477 2.51.637 1.118.956 2.466.956 4.039 0 1.573-.319 2.921-.956 4.04zm-2.8-7.892c-.889-.922-2.06-1.383-3.513-1.383-1.453 0-2.625.461-3.513 1.383-.889.922-1.215 2.206-1.215 3.852s.326 2.931 1.215 3.852c.889.922 2.06 1.383 3.513 1.383 1.453 0 2.625-.46 3.513-1.383.889-.922 1.333-2.206 1.333-3.852s-.444-2.93-1.333-3.852zm7.272-8.496v19.327h-2.423V4.6h2.423zm1.995 8.429c.592-1.109 1.422-1.963 2.491-2.564 1.067-.599 2.319-.899 3.754-.899s2.626.295 3.621.886c.996.591 1.741 1.374 2.234 2.349.494.976.74 2.045.74 3.207v1.61H99.134c.09 1.396.561 2.506 1.413 3.329.852.824 1.996 1.235 3.433 1.235 1.166 0 2.059-.237 2.678-.711.62-.474 1.072-1.131 1.36-1.973h2.558c-.341 1.306-1.037 2.439-2.086 3.396-1.049.958-2.553 1.436-4.509 1.436-1.472 0-2.769-.3-3.891-.899-1.121-.599-1.988-1.454-2.598-2.564-.61-1.11-.915-2.416-.915-3.92s.296-2.809.889-3.919h-.001zm10.149 2.576c0-1.217-.314-2.169-.942-2.859-.628-.689-1.615-1.033-2.962-1.033-1.255 0-2.284.335-3.082 1.006-.799.671-1.287 1.634-1.467 2.886zm1.613 7.785l5.545-6.846-4.549-6.039v-.537h2.665l3.797 5.207 4.092-5.207h2.718v.564l-5.222 6.416 4.819 6.442v.537h-2.611l-4.119-5.61-4.414 5.61h-2.719v-.537zm17.786-17.965v3.021h-2.83V5.423zm-.147 18.503h-2.424V9.967h2.424zm.764-13.959h2.636V6.209h2.424v3.758h2.774l.681 2.046h-3.455v6.678c0 .912-.023 1.588-.068 2.027-.045.439-.067.703-.067.792 0 .126.035.224.107.295.072.072.17.107.297.107.089 0 .354-.022.794-.067.439-.045 1.117-.067 2.033-.067h.942v2.147h-1.884c-1.544 0-2.693-.375-3.446-1.128-.753-.752-1.131-1.896-1.131-3.436v-7.349h-2.635V9.966h-.002zm8.564 0h2.47l4.011 11.711c.055.144.14.333.415.333.275 0 .36-.19.414-.333l4.011-11.711h2.304v.537l-5.018 15.059c-.431 1.289-1.036 2.188-1.816 2.698-.781.51-1.688.765-3.197.765h-2.584v-2.147h1.966c.628 0 1.139.022 1.534.067.394.045.646.067.754.067.305 0 .511-.134.62-.402l.754-2.04c.09-.214.098-.375.027-.484-.036-.072-.08-.117-.134-.134-.054-.018-.135-.027-.242-.027h-1.642l-4.645-13.958h-.002zM53.032 21.009c-.637 1.118-1.463 1.955-2.477 2.509-1.014.554-2.105.832-3.271.832-2.297 0-3.913-.912-4.846-2.738-.072-.142-.162-.214-.269-.214-.107 0-.162.054-.162.161v7.489h-2.423V9.991h2.423v2.389c0 .107.054.161.162.161.108 0 .197-.072.269-.214.932-1.826 2.549-2.738 4.846-2.738 1.166 0 2.257.278 3.271.832 1.014.554 1.839 1.391 2.477 2.509.637 1.118.956 2.466.956 4.04 0 1.574-.319 2.921-.956 4.039zm-2.8-7.892c-.889-.922-2.06-1.383-3.513-1.383-1.453 0-2.625.461-3.513 1.383-.889.922-1.215 2.206-1.215 3.852s.326 2.931 1.215 3.852c.889.922 2.06 1.383 3.513 1.383 1.453 0 2.625-.46 3.513-1.383.889-.922 1.333-2.206 1.333-3.852s-.444-2.93-1.333-3.852z" fill="#13343b"/></svg></div>
+                        <div class="logo-item flex-shrink-0" title="TOEIC"><img src="https://cdn.worldvectorlogo.com/logos/toeic.svg" alt="TOEIC" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Amazon Web Services (AWS)"><img src="https://cdn.worldvectorlogo.com/logos/aws-2.svg" alt="AWS" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Cisco"><img src="https://cdn.worldvectorlogo.com/logos/cisco-2.svg" alt="Cisco" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Tableau"><img src="https://cdn.worldvectorlogo.com/logos/tableau-software.svg" alt="Tableau" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="OpenAI (ChatGPT)"><img src="https://cdn.worldvectorlogo.com/logos/openai-2.svg" alt="OpenAI" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Zapier"><img src="https://cdn.worldvectorlogo.com/logos/zapier.svg" alt="Zapier" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Docker"><img src="https://cdn.worldvectorlogo.com/logos/docker.svg" alt="Docker" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Perplexity AI"><img src="https://cdn.worldvectorlogo.com/logos/perplexity-ai.svg" alt="Perplexity AI" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="ANSSI"><img src="https://cdn.worldvectorlogo.com/logos/anssi.svg" alt="ANSSI" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Cambridge English"><img src="https://cdn.worldvectorlogo.com/logos/cambridge-english-language-assessment.svg" alt="Cambridge English" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Notion"><img src="https://cdn.worldvectorlogo.com/logos/notion-1.svg" alt="Notion" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="n8n"><img src="https://cdn.worldvectorlogo.com/logos/n8n.svg" alt="n8n" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="Figma"><img src="https://cdn.worldvectorlogo.com/logos/figma-1.svg" alt="Figma" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="SEMrush"><img src="https://cdn.worldvectorlogo.com/logos/semrush.svg" alt="SEMrush" class="h-10"></div>
+                        <div class="logo-item flex-shrink-0" title="(ISC)²"><img src="https://cdn.worldvectorlogo.com/logos/isc-2.svg" alt="(ISC)²" class="h-10"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formations Section -->
+        <section id="formations" class="py-20 md:py-32 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold" style="color: var(--text-dark);">Un catalogue de compétences pour le monde de demain</h2>
+                    <p class="text-indigo-800/80 mt-4 max-w-2xl mx-auto">Chaque formation est une brique pour construire ou accélérer votre carrière. Cursus certifiants et conformes QUALIOPI.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <a href="formations.html" class="formation-card p-8 flex flex-col items-start">
+                        <div class="p-3 rounded-lg mb-4" style="background-color: #FFD15B40;"><i data-lucide="code-2" class="h-8 w-8" style="color: var(--accent-yellow-darker);"></i></div>
+                        <h3 class="font-serif text-2xl font-bold mb-2">Développement Web</h3>
+                        <p class="text-indigo-800/80 mb-6 flex-grow">Devenez développeur avec nos cursus HTML, CSS, Javascript et Python.</p>
+                        <span class="font-semibold flex items-center group mt-auto" style="color: var(--text-dark);">
+                            Voir le détail <i data-lucide="arrow-right" class="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"></i>
+                        </span>
+                    </a>
+
+                    <a href="formation-intelligence-artificielle.html" class="formation-card p-8 flex flex-col items-start">
+                        <div class="p-3 rounded-lg mb-4" style="background-color: #FF6B6B40;"><i data-lucide="puzzle" class="h-8 w-8" style="color: var(--accent-red);"></i></div>
+                        <h3 class="font-serif text-2xl font-bold mb-2">No-Code & IA</h3>
+                        <p class="text-indigo-800/80 mb-6 flex-grow">Créez des applications sans coder et découvrez le potentiel de l'intelligence artificielle.</p>
+                         <span class="font-semibold flex items-center group mt-auto" style="color: var(--text-dark);">
+                            Voir le détail <i data-lucide="arrow-right" class="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"></i>
+                        </span>
+                    </a>
+                    
+                    <a href="formations.html" class="formation-card p-8 flex flex-col items-start">
+                        <div class="p-3 rounded-lg mb-4" style="background-color: #4DCCBD40;"><i data-lucide="mouse-pointer-click" class="h-8 w-8" style="color: var(--accent-teal);"></i></div>
+                        <h3 class="font-serif text-2xl font-bold mb-2">Création & Digital</h3>
+                        <p class="text-indigo-800/80 mb-6 flex-grow">Maîtrisez Photoshop, la Data Visualisation et les stratégies de réseaux sociaux.</p>
+                        <span class="font-semibold flex items-center group mt-auto" style="color: var(--text-dark);">
+                            Voir le détail <i data-lucide="arrow-right" class="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"></i>
+                        </span>
+                    </a>
+
+                    <a href="formations.html" class="formation-card p-8 flex flex-col items-start">
+                         <div class="p-3 rounded-lg mb-4" style="background-color: #FFD15B40;"><i data-lucide="globe-2" class="h-8 w-8" style="color: var(--accent-yellow-darker);"></i></div>
+                        <h3 class="font-serif text-2xl font-bold mb-2">Langues Étrangères</h3>
+                        <p class="text-indigo-800/80 mb-6 flex-grow">Communiquez avec le monde grâce à nos formations en Business English et FLE.</p>
+                        <span class="font-semibold flex items-center group mt-auto" style="color: var(--text-dark);">
+                            Voir le détail <i data-lucide="arrow-right" class="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"></i>
+                        </span>
+                    </a>
+
+                    <a href="formation-cybersecurite.html" class="formation-card p-8 flex flex-col items-start">
+                        <div class="p-3 rounded-lg mb-4" style="background-color: #FF6B6B40;"><i data-lucide="shield-check" class="h-8 w-8" style="color: var(--accent-red);"></i></div>
+                        <h3 class="font-serif text-2xl font-bold mb-2">Cybersécurité</h3>
+                        <p class="text-indigo-800/80 mb-6 flex-grow">Protégez les systèmes d'information avec notre formation double-certification.</p>
+                        <span class="font-semibold flex items-center group mt-auto" style="color: var(--text-dark);">
+                            Voir le détail <i data-lucide="arrow-right" class="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"></i>
+                        </span>
+                    </a>
+                    
+                    <a href="formations.html" class="formation-card p-8 flex flex-col items-start">
+                        <div class="p-3 rounded-lg mb-4" style="background-color: #4DCCBD40;"><i data-lucide="briefcase" class="h-8 w-8" style="color: var(--accent-teal);"></i></div>
+                        <h3 class="font-serif text-2xl font-bold mb-2">Entrepreneuriat</h3>
+                        <p class="text-indigo-800/80 mb-6 flex-grow">De l'idée à la création, maîtrisez toutes les étapes pour lancer votre entreprise.</p>
+                        <span class="font-semibold flex items-center group mt-auto" style="color: var(--text-dark);">
+                            Voir le détail <i data-lucide="arrow-right" class="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Le Concept Section -->
+        <section id="concept" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold" style="color: var(--text-dark);">Apprendre autrement, après le travail</h2>
+                    <p class="text-indigo-800/80 mt-4 max-w-2xl mx-auto">Nous avons repensé la formation pour adultes pour qu'elle s'adapte à votre vie, et non l'inverse.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+                    <div class="p-6">
+                        <i data-lucide="sunset" class="h-12 w-12 mx-auto mb-4" style="color: var(--accent-yellow-darker);"></i>
+                        <h3 class="text-xl font-bold mb-2" style="color: var(--text-dark);">Horaires Adaptés</h3>
+                        <p class="text-indigo-800/80">Tous les soirs de 18H30 à 21H30 et le samedi matin. Formez-vous sans sacrifier votre carrière.</p>
+                    </div>
+                    <div class="p-6">
+                        <i data-lucide="coffee" class="h-12 w-12 mx-auto mb-4" style="color: var(--accent-red);"></i>
+                        <h3 class="text-xl font-bold mb-2" style="color: var(--text-dark);">Lieux d'exception</h3>
+                        <p class="text-indigo-800/80">Au cœur de Bordeaux, dans des co-workings designs et parfaitement équipés pour un apprentissage optimal.</p>
+                    </div>
+                    <div class="p-6">
+                        <img src="https://i.ibb.co/L9ZfGf5/qualiopi-logo.png" alt="Logo Qualiopi" class="h-12 mx-auto mb-4">
+                        <h3 class="text-xl font-bold mb-2" style="color: var(--text-dark);">Qualité Certifiée</h3>
+                        <p class="text-indigo-800/80">Organisme de formation dont le processus a été certifié QUALIOPI, gage de qualité et d'éligibilité aux financements.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nos Formateurs Section -->
+        <section id="formateurs" class="py-20 md:py-32 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold" style="color: var(--text-dark);">Des formateurs experts à votre écoute</h2>
+                    <p class="text-indigo-800/80 mt-4 max-w-2xl mx-auto">Nos intervenants sont des professionnels reconnus dans leur domaine, passionnés par la transmission de leur savoir.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Trainer Card 1 -->
+                    <div class="text-center">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Formateur Julien Moreau" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover shadow-lg">
+                        <h3 class="font-bold text-xl" style="color: var(--text-dark);">Julien Moreau</h3>
+                        <p class="font-medium text-indigo-800/80">Expert Développement Web</p>
+                    </div>
+                    <!-- Trainer Card 2 -->
+                    <div class="text-center">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Formatrice Chloé Dubois" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover shadow-lg">
+                        <h3 class="font-bold text-xl" style="color: var(--text-dark);">Chloé Dubois</h3>
+                        <p class="font-medium text-indigo-800/80">Spécialiste No-Code & Automatisation</p>
+                    </div>
+                    <!-- Trainer Card 3 -->
+                    <div class="text-center">
+                        <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Formateur Marc Petit" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover shadow-lg">
+                        <h3 class="font-bold text-xl" style="color: var(--text-dark);">Marc Petit</h3>
+                        <p class="font-medium text-indigo-800/80">Consultant en Marketing Digital</p>
+                    </div>
+                    <!-- Trainer Card 4 -->
+                    <div class="text-center">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Formatrice Laura Martin" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover shadow-lg">
+                        <h3 class="font-bold text-xl" style="color: var(--text-dark);">Laura Martin</h3>
+                        <p class="font-medium text-indigo-800/80">Coach en Management Agile</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Témoignages Section -->
+        <section id="temoignages" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold" style="color: var(--text-dark);">Ce que nos anciens élèves en disent</h2>
+                    <p class="text-indigo-800/80 mt-4 max-w-2xl mx-auto">Leur réussite est notre plus grande fierté. Découvrez leurs parcours.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Testimonial Card 1 -->
+                    <div class="bg-white p-8 rounded-xl border border-slate-200/50 shadow-sm">
+                        <i data-lucide="quote" class="h-10 w-10 mb-4" style="color: var(--accent-yellow);"></i>
+                        <p class="text-indigo-800/80 mb-6">"Une formation qui a changé ma carrière. Le format du soir était parfait pour moi. Les formateurs sont non seulement experts mais aussi très pédagogues. Je recommande à 100%!"</p>
+                        <div class="flex items-center">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Photo de l'élève Alexandre L." class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <p class="font-bold" style="color: var(--text-dark);">Alexandre L.</p>
+                                <p class="text-sm text-indigo-800/60">Formation Développement Web</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial Card 2 -->
+                    <div class="bg-white p-8 rounded-xl border border-slate-200/50 shadow-sm">
+                        <i data-lucide="quote" class="h-10 w-10 mb-4" style="color: var(--accent-yellow);"></i>
+                        <p class="text-indigo-800/80 mb-6">"J'ai pu lancer mon projet de marketplace sans savoir coder grâce à la formation No-Code. L'accompagnement est top et l'ambiance dans les coworkings est très stimulante."</p>
+                        <div class="flex items-center">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Photo de l'élève Marie C." class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <p class="font-bold" style="color: var(--text-dark);">Marie C.</p>
+                                <p class="text-sm text-indigo-800/60">Formation No-Code</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial Card 3 -->
+                    <div class="bg-white p-8 rounded-xl border border-slate-200/50 shadow-sm">
+                        <i data-lucide="quote" class="h-10 w-10 mb-4" style="color: var(--accent-yellow);"></i>
+                        <p class="text-indigo-800/80 mb-6">"La certification en Marketing Digital m'a ouvert de nouvelles portes. Le contenu est très à jour et les cas pratiques pertinents. Un vrai plus sur mon CV."</p>
+                        <div class="flex items-center">
+                            <img src="https://randomuser.me/api/portraits/men/36.jpg" alt="Photo de l'élève Thomas R." class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <p class="font-bold" style="color: var(--text-dark);">Thomas R.</p>
+                                <p class="text-sm text-indigo-800/60">Formation Marketing Digital</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20 md:py-32 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold" style="color: var(--text-dark);">Questions fréquentes</h2>
+                    <p class="text-indigo-800/80 mt-4 max-w-2xl mx-auto">Toutes les réponses à vos interrogations sur nos formations et notre fonctionnement.</p>
+                </div>
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <details class="bg-slate-50/70 rounded-lg border border-neutral-border transition hover:bg-white group">
+                        <summary class="p-6 w-full flex justify-between items-center text-left font-semibold cursor-pointer">
+                            <span class="font-semibold text-lg" style="color: var(--text-dark);">Quels sont les prérequis pour suivre une formation ?</span>
+                            <i data-lucide="chevron-down" class="transition-transform duration-300 text-indigo-800/80 group-hover:text-indigo-900"></i>
+                        </summary>
+                        <div class="p-6 pt-0 text-indigo-800/80">
+                            Chaque formation a ses propres prérequis. Nos cursus "Débutant" (comme HTML/CSS ou No-Code) sont conçus pour les vrais débutants sans aucune expérience. D'autres, comme la formation en Intelligence Artificielle, demandent une connaissance préalable de la programmation.
+                            <br><br>
+                            Les prérequis sont clairement indiqués sur chaque page de formation. Dans tous les cas, un entretien individuel avec notre équipe pédagogique permet de valider que la formation correspond bien à votre profil et à votre projet.
+                        </div>
+                    </details>
+                    <!-- FAQ Item 2 -->
+                    <details class="bg-slate-50/70 rounded-lg border border-neutral-border transition hover:bg-white group">
+                        <summary class="p-6 w-full flex justify-between items-center text-left font-semibold cursor-pointer">
+                            <span class="font-semibold text-lg" style="color: var(--text-dark);">Quelles sont les options de financement ?</span>
+                            <i data-lucide="chevron-down" class="transition-transform duration-300 text-indigo-800/80 group-hover:text-indigo-900"></i>
+                        </summary>
+                        <div class="p-6 pt-0 text-indigo-800/80">
+                            En tant qu'organisme certifié Qualiopi, plusieurs options s'offrent à vous. Nos formations sont éligibles au financement via votre <strong>Compte Personnel de Formation (CPF)</strong>. Selon votre situation, des financements par les <strong>OPCO</strong> (opérateurs de compétences) ou <strong>Pôle Emploi</strong> sont également possibles. Pour les financements personnels, nous proposons des <strong>paiements échelonnés en 3 ou 4 fois sans frais</strong>. Notre équipe est à votre disposition pour vous aider à monter votre dossier de financement.
+                        </div>
+                    </details>
+                    <!-- FAQ Item 3 -->
+                    <details class="bg-slate-50/70 rounded-lg border border-neutral-border transition hover:bg-white group">
+                        <summary class="p-6 w-full flex justify-between items-center text-left font-semibold cursor-pointer">
+                            <span class="font-semibold text-lg" style="color: var(--text-dark);">Comment se déroule le processus d'inscription ?</span>
+                            <i data-lucide="chevron-down" class="transition-transform duration-300 text-indigo-800/80 group-hover:text-indigo-900"></i>
+                        </summary>
+                        <div class="p-6 pt-0 text-indigo-800/80">
+                            C'est très simple :
+                            <ol class="list-decimal list-inside mt-2 space-y-1">
+                                <li><strong>Postulez :</strong> Remplissez le formulaire sur la page de la formation qui vous intéresse.</li>
+                                <li><strong>Entretien :</strong> Un membre de notre équipe vous contacte pour un entretien de positionnement afin de valider l'adéquation de la formation avec votre projet.</li>
+                                <li><strong>Financement :</strong> Nous vous accompagnons dans le montage de votre dossier de financement (CPF, etc.).</li>
+                                <li><strong>Validation :</strong> Une fois le financement validé, votre inscription est confirmée et vous recevez toutes les informations pour bien démarrer.</li>
+                            </ol>
+                        </div>
+                    </details>
+                    <!-- FAQ Item 4 -->
+                    <details class="bg-slate-50/70 rounded-lg border border-neutral-border transition hover:bg-white group">
+                        <summary class="p-6 w-full flex justify-between items-center text-left font-semibold cursor-pointer">
+                            <span class="font-semibold text-lg" style="color: var(--text-dark);">Les formations ont-elles lieu en présentiel ou à distance ?</span>
+                            <i data-lucide="chevron-down" class="transition-transform duration-300 text-indigo-800/80 group-hover:text-indigo-900"></i>
+                        </summary>
+                        <div class="p-6 pt-0 text-indigo-800/80">
+                            Notre concept repose sur l'apprentissage en commun et l'énergie du groupe. Toutes nos formations se déroulent en <strong>100% présentiel</strong>, en cours du soir et le samedi matin, dans des espaces de co-working premiums et inspirants au cœur de Bordeaux. Nous croyons que les interactions directes avec les formateurs et les autres élèves sont un puissant accélérateur de compétences.
+                        </div>
+                    </details>
+                    <!-- FAQ Item 5 -->
+                    <details class="bg-slate-50/70 rounded-lg border border-neutral-border transition hover:bg-white group">
+                        <summary class="p-6 w-full flex justify-between items-center text-left font-semibold cursor-pointer">
+                            <span class="font-semibold text-lg" style="color: var(--text-dark);">Que se passe-t-il si je manque un cours ?</span>
+                            <i data-lucide="chevron-down" class="transition-transform duration-300 text-indigo-800/80 group-hover:text-indigo-900"></i>
+                        </summary>
+                        <div class="p-6 pt-0 text-indigo-800/80">
+                            Nous savons que des imprévus peuvent survenir. Chaque session est accompagnée de supports de cours détaillés accessibles sur notre plateforme en ligne. En cas d'absence, vous pourrez ainsi revoir les points clés. De plus, nos formateurs et les autres membres de votre promotion sont là pour vous aider à rattraper et à ne pas perdre le fil.
+                        </div>
+                    </details>
+                    <!-- FAQ Item 6 -->
+                    <details class="bg-slate-50/70 rounded-lg border border-neutral-border transition hover:bg-white group">
+                        <summary class="p-6 w-full flex justify-between items-center text-left font-semibold cursor-pointer">
+                            <span class="font-semibold text-lg" style="color: var(--text-dark);">Y a-t-il un accompagnement après la formation ?</span>
+                            <i data-lucide="chevron-down" class="transition-transform duration-300 text-indigo-800/80 group-hover:text-indigo-900"></i>
+                        </summary>
+                        <div class="p-6 pt-0 text-indigo-800/80">
+                            Absolument. En rejoignant Les Cours du Soir, vous intégrez une communauté. Vous aurez accès à notre réseau d'anciens élèves via un groupe privé, un excellent moyen de poser des questions, de partager des opportunités et de continuer à apprendre. Nous organisons également des événements et des ateliers pour maintenir le lien.
+                        </div>
+                    </details>
+                    <!-- FAQ Item 7 -->
+                    <details class="bg-slate-50/70 rounded-lg border border-neutral-border transition hover:bg-white group">
+                        <summary class="p-6 w-full flex justify-between items-center text-left font-semibold cursor-pointer">
+                            <span class="font-semibold text-lg" style="color: var(--text-dark);">Vos formations sont-elles accessibles aux personnes en situation de handicap ?</span>
+                            <i data-lucide="chevron-down" class="transition-transform duration-300 text-indigo-800/80 group-hover:text-indigo-900"></i>
+                        </summary>
+                        <div class="p-6 pt-0 text-indigo-800/80">
+                            Oui. Nous nous engageons à rendre nos formations accessibles à tous. Nos locaux partenaires sont conformes aux normes d'accessibilité. Nous disposons d'un référent handicap que vous pouvez contacter en amont de l'inscription pour étudier ensemble les aménagements pédagogiques, techniques et organisationnels nécessaires à votre parcours.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact-home" class="py-20 md:py-32">
+             <div class="container mx-auto px-6 text-center">
+                 <h2 class="font-serif text-3xl md:text-4xl font-bold" style="color: var(--text-dark);">Prêt à illuminer votre carrière ?</h2>
+                 <p class="text-indigo-800/80 mt-4 max-w-2xl mx-auto mb-8">Discutons de votre projet de formation. Notre équipe est là pour vous conseiller et vous orienter vers le parcours le plus adapté.</p>
+                 <a href="contact.html" class="cta-button font-bold text-lg px-8 py-4 inline-block">
+                    Prendre contact
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer style="background-color: var(--text-dark-blue);" class="text-white">
+        <div class="container mx-auto px-6 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                <!-- Newsletter -->
+                <div class="md:col-span-5 lg:col-span-4">
+                    <h3 class="text-base font-semibold uppercase tracking-wider text-gray-400">S'inscrire à la newsletter</h3>
+                    <p class="mt-4 text-gray-300">Recevez conseils, actus et offres exclusives.</p>
+                    <form class="mt-4 flex">
+                        <input type="email" placeholder="Email" class="w-full px-4 py-3 rounded-l-md border-0 text-gray-800 focus:ring-2 focus:ring-yellow-400" required>
+                        <button type="submit" class="bg-yellow-400 text-gray-900 font-bold px-6 py-3 rounded-r-md hover:bg-yellow-300 transition-colors">Subscribe</button>
+                    </form>
+                </div>
+
+                <!-- Spacer -->
+                <div class="hidden lg:block lg:col-span-1"></div>
+
+                <!-- Links -->
+                <div class="md:col-span-7 lg:col-span-7 grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div>
+                        <h3 class="text-base font-semibold uppercase tracking-wider text-gray-400">Formations</h3>
+                        <ul class="mt-4 space-y-2">
+                            <li><a href="formations.html" class="text-gray-300 hover:text-white">Informatique</a></li>
+                            <li><a href="formations.html" class="text-gray-300 hover:text-white">Digital</a></li>
+                            <li><a href="formations.html" class="text-gray-300 hover:text-white">Langues</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-semibold uppercase tracking-wider text-gray-400">Ressources</h3>
+                        <ul class="mt-4 space-y-2">
+                            <li><a href="blog.html" class="text-gray-300 hover:text-white">Blog</a></li>
+                            <li><a href="#faq" class="text-gray-300 hover:text-white">FAQ</a></li>
+                            <li><a href="contact.html" class="text-gray-300 hover:text-white">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-semibold uppercase tracking-wider text-gray-400">À propos</h3>
+                        <ul class="mt-4 space-y-2">
+                            <li><a href="formateurs.html" class="text-gray-300 hover:text-white">Équipe</a></li>
+                            <li><a href="concept.html" class="text-gray-300 hover:text-white">Mission</a></li>
+                        </ul>
+                    </div>
+                     <div>
+                        <h3 class="text-base font-semibold uppercase tracking-wider text-gray-400">Légal</h3>
+                        <ul class="mt-4 space-y-2">
+                             <li><a href="mentions-legales.html" class="text-gray-300 hover:text-white">Mentions</a></li>
+                             <li><a href="cgu.html" class="text-gray-300 hover:text-white">CGU</a></li>
+                             <li><a href="confidentialite.html" class="text-gray-300 hover:text-white">Confidentialité</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-16 pt-8 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-center">
+                 <div class="flex items-center text-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" zoomAndPan="magnify" viewBox="0 0 60 60" preserveAspectRatio="xMidYMid meet" version="1.0" class="h-8 w-8 mr-3 filter invert"><defs><clipPath id="628d04ab9c"><path d="M 15.75 0 L 44.25 0 C 52.949219 0 60 7.050781 60 15.75 L 60 44.25 C 60 52.949219 52.949219 60 44.25 60 L 15.75 60 C 7.050781 60 0 52.949219 0 44.25 L 0 15.75 C 0 7.050781 7.050781 0 15.75 0 Z M 15.75 0 " clip-rule="nonzero"/></clipPath><clipPath id="b40f61ce87"><path d="M 5.503906 5.503906 L 54.496094 5.503906 L 54.496094 54.496094 L 5.503906 54.496094 Z M 5.503906 5.503906 " clip-rule="nonzero"/></clipPath><clipPath id="bb1df947ec"><path d="M 30 5.503906 C 16.46875 5.503906 5.503906 16.46875 5.503906 30 C 5.503906 43.53125 16.46875 54.496094 30 54.496094 C 43.53125 54.496094 54.496094 43.53125 54.496094 30 C 54.496094 16.46875 43.53125 5.503906 30 5.503906 Z M 30 5.503906 " clip-rule="nonzero"/></clipPath><clipPath id="fe175d408c"><path d="M 10.292969 17.878906 L 38.042969 17.878906 L 38.042969 59.878906 L 10.292969 59.878906 Z M 10.292969 17.878906 " clip-rule="nonzero"/></clipPath></defs><g clip-path="url(#628d04ab9c)"><rect x="-6" width="72" fill="#ffffff" y="-6" height="72" fill-opacity="1"/></g><g clip-path="url(#b40f61ce87)"><g clip-path="url(#bb1df947ec)"><path fill="#fec446" d="M 5.503906 5.503906 L 54.496094 5.503906 L 54.496094 54.496094 L 5.503906 54.496094 Z M 5.503906 5.503906 " fill-opacity="1" fill-rule="nonzero"/></g></g><g clip-path="url(#fe175d408c)"><path fill="#000000" d="M 15.042969 46.859375 L 31.660156 46.859375 L 33.59375 43.722656 L 13.109375 43.722656 Z M 6.785156 92.921875 L 39.917969 92.921875 L 39.917969 93.992188 L 6.785156 93.992188 Z M -6.289062 89.703125 L 53.101562 89.703125 L 53.046875 90.777344 L -6.34375 90.777344 Z M 23.371094 51.246094 C 23.917969 51.246094 24.417969 51.46875 24.777344 51.832031 C 25.140625 52.191406 25.363281 52.691406 25.363281 53.238281 L 25.363281 57.75 L 21.378906 57.75 L 21.378906 53.238281 C 21.378906 52.691406 21.601562 52.195312 21.960938 51.832031 L 21.964844 51.832031 C 22.324219 51.46875 22.824219 51.246094 23.371094 51.246094 Z M 23.371094 52.320312 C 23.117188 52.320312 22.886719 52.421875 22.71875 52.589844 C 22.554688 52.753906 22.449219 52.984375 22.449219 53.238281 L 22.449219 56.679688 L 24.289062 56.679688 L 24.289062 53.238281 C 24.289062 52.984375 24.1875 52.757812 24.019531 52.589844 C 23.851562 52.421875 23.621094 52.320312 23.371094 52.320312 Z M 2.785156 86.597656 L 10.761719 86.597656 L 14.28125 47.65625 L 11.695312 43.464844 L 11.191406 42.648438 L 12.640625 42.648438 L 12.640625 38.617188 L 14.945312 38.617188 L 14.945312 34.460938 L 15.890625 34.460938 L 15.890625 26.773438 L 15.632812 26.773438 L 15.632812 25.699219 L 17.0625 25.699219 C 17.105469 25.117188 17.265625 24.652344 17.511719 24.265625 C 17.832031 23.769531 18.277344 23.429688 18.78125 23.136719 C 19.367188 22.796875 19.9375 22.589844 20.480469 22.394531 C 21.480469 22.035156 22.351562 21.722656 22.828125 20.46875 L 22.828125 17.800781 L 23.898438 17.800781 L 23.898438 20.453125 C 24.371094 21.722656 25.238281 22.035156 26.238281 22.398438 C 26.769531 22.589844 27.335938 22.796875 27.925781 23.136719 C 28.429688 23.429688 28.871094 23.769531 29.191406 24.265625 C 29.4375 24.652344 29.601562 25.117188 29.640625 25.699219 L 31.074219 25.699219 L 31.074219 26.773438 L 30.867188 26.773438 L 30.867188 34.460938 L 31.757812 34.460938 L 31.757812 38.617188 L 34.0625 38.617188 L 34.0625 42.648438 L 35.515625 42.648438 L 35.007812 43.464844 L 32.421875 47.65625 L 35.941406 86.597656 L 43.917969 86.597656 L 43.917969 87.667969 L 2.785156 87.667969 Z M 11.832031 86.597656 L 19.292969 86.597656 L 19.292969 77.464844 C 19.292969 76.34375 19.753906 75.324219 20.492188 74.585938 C 21.230469 73.847656 22.25 73.390625 23.371094 73.390625 C 24.492188 73.390625 25.511719 73.847656 26.25 74.585938 C 26.988281 75.324219 27.445312 76.34375 27.445312 77.464844 L 27.445312 86.597656 L 34.871094 86.597656 L 31.371094 47.929688 L 15.332031 47.929688 Z M 30.6875 42.648438 L 30.6875 40.605469 L 31.757812 40.605469 L 31.757812 42.648438 L 32.988281 42.648438 L 32.988281 39.6875 L 13.714844 39.6875 L 13.714844 42.648438 L 14.945312 42.648438 L 14.945312 40.605469 L 16.019531 40.605469 L 16.019531 42.648438 Z M 28.566406 25.699219 C 28.53125 25.34375 28.433594 25.070312 28.289062 24.84375 C 28.082031 24.519531 27.761719 24.277344 27.386719 24.0625 C 26.878906 23.765625 26.363281 23.578125 25.875 23.402344 C 24.886719 23.046875 24.007812 22.726562 23.363281 21.761719 C 22.71875 22.726562 21.832031 23.042969 20.839844 23.402344 C 20.351562 23.578125 19.828125 23.765625 19.316406 24.0625 C 18.945312 24.277344 18.621094 24.519531 18.414062 24.84375 C 18.269531 25.070312 18.171875 25.34375 18.136719 25.699219 Z M 29.796875 34.460938 L 29.796875 26.773438 L 29.226562 26.773438 L 29.226562 34.460938 Z M 28.15625 34.460938 L 28.15625 26.773438 L 26.207031 26.773438 L 26.207031 34.460938 Z M 25.132812 34.460938 L 25.132812 26.773438 L 21.570312 26.773438 L 21.570312 34.460938 Z M 20.5 34.460938 L 20.5 26.773438 L 18.4375 26.773438 L 18.4375 34.460938 Z M 17.363281 34.460938 L 17.363281 26.773438 L 16.964844 26.773438 L 16.964844 34.460938 Z M 16.019531 38.617188 L 30.6875 38.617188 L 30.6875 35.53125 L 16.019531 35.53125 Z M 20.367188 86.597656 L 26.375 86.597656 L 26.375 77.464844 C 26.375 76.640625 26.035156 75.890625 25.492188 75.34375 C 24.945312 74.800781 24.195312 74.460938 23.371094 74.460938 C 22.542969 74.460938 21.792969 74.800781 21.25 75.34375 C 20.707031 75.890625 20.367188 76.640625 20.367188 77.464844 L 20.367188 86.597656 " fill-opacity="1" fill-rule="nonzero"/></g></svg>
+                    <span>Tous droits réservés © 2025</span>
+                </div>
+                <div class="flex space-x-6 mt-4 sm:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="instagram"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="linkedin"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+         lucide.createIcons();
+ 
+         // Mobile Menu Logic
+         const mobileMenuButton = document.getElementById('mobile-menu-button');
+         const mobileMenu = document.getElementById('mobile-menu');
+         const menuLinks = document.querySelectorAll('#mobile-menu a');
+         
+         mobileMenuButton.addEventListener('click', () => {
+             mobileMenu.classList.toggle('hidden');
+         });
+         menuLinks.forEach(link => {
+             link.addEventListener('click', () => {
+                  mobileMenu.classList.add('hidden');
+             });
+         });
+ 
+         // Sticky Header with background
+         const header = document.getElementById('header');
+         window.addEventListener('scroll', () => {
+             if (window.scrollY > 50) {
+                 header.classList.add('header-scrolled');
+             } else {
+                 header.classList.remove('header-scrolled');
+             }
+         });
+ 
+     </script>
+</body>
+</html>

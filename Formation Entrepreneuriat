@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation Entrepreneuriat et Création d'entreprise - LES COURS DU SOIR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg-main: #FFFBF5;
+            --text-dark: #1A237E;
+            --accent-yellow: #FFD15B;
+            --accent-yellow-darker: #F9C444;
+            --accent-teal: #4DCCBD;
+            --neutral-white: #FFFFFF;
+            --neutral-border: #F0EAE1;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Manrope', sans-serif;
+        }
+        body { font-family: var(--font-sans); background-color: var(--bg-main); color: var(--text-dark); }
+        .font-serif { font-family: var(--font-serif); }
+        .header-scrolled { background-color: rgba(255, 251, 245, 0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .cta-button { background-color: var(--accent-yellow); color: var(--text-dark); border: 2px solid var(--text-dark); border-radius: 0.5rem; box-shadow: 4px 4px 0px var(--text-dark); transition: all 0.15s ease-out; }
+        .cta-button:hover { background-color: var(--accent-yellow-darker); transform: translate(-2px, -2px); box-shadow: 6px 6px 0px var(--text-dark); }
+        .cta-button:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--text-dark); }
+        .cta-button[disabled] { background-color: #d1c4e9; box-shadow: none; transform: none; cursor: not-allowed; }
+        .modal-overlay { transition: opacity 0.3s ease; }
+        .modal-content { transition: transform 0.3s ease, opacity 0.3s ease; }
+        .form-input, .form-textarea, .form-radio-label { width: 100%; border: 1px solid var(--neutral-border); border-radius: 0.5rem; padding: 0.75rem 1rem; background-color: var(--neutral-white); transition: border-color 0.2s, box-shadow 0.2s; }
+        .form-input:focus, .form-textarea:focus { outline: none; border-color: var(--accent-yellow-darker); box-shadow: 0 0 0 3px rgba(255, 209, 91, 0.5); }
+        .form-checkbox-label { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.875rem; color: var(--text-dark); cursor: pointer;}
+        .form-checkbox { accent-color: var(--text-dark); }
+        .accordion-item-header { cursor: pointer; }
+        .accordion-item-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+             <a href="index.html" class="flex items-center space-x-3">
+                <img src="https://i.ibb.co/k2g7x0W/Logo-Les-1.png" alt="Logo Les Cours du Soir" class="h-12 w-12">
+                <span class="text-xl font-bold" style="color: var(--text-dark);">LES COURS DU SOIR</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="formations.html" class="text-indigo-900 hover:text-yellow-500 transition font-medium">Formations</a>
+                <a href="concept.html" class="text-indigo-900 hover:text-yellow-500 transition font-medium">Le Concept</a>
+                <a href="formateurs.html" class="text-indigo-900 hover:text-yellow-500 transition font-medium">Formateurs</a>
+                <a href="contact.html" class="text-indigo-900 hover:text-yellow-500 transition font-medium">Contact</a>
+            </div>
+             <button id="mobile-menu-button" class="md:hidden text-indigo-900"><i data-lucide="menu"></i></button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="pt-40 pb-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="font-serif text-4xl md:text-6xl font-bold leading-tight mb-4" style="color: var(--text-dark);">Formation Entrepreneuriat & Création d'entreprise</h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto text-indigo-800/80">
+                    De l'idée au lancement, structurez votre projet, construisez votre business plan et maîtrisez les étapes clés pour devenir entrepreneur.
+                </p>
+                <div class="mt-8">
+                    <button id="open-modal-button" class="cta-button font-bold px-8 py-4 text-lg">Postuler à la formation</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Public Cible -->
+        <section class="py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4">À qui s'adresse cette formation ?</h2>
+                    <p class="max-w-3xl mx-auto text-indigo-800/80">Cette formation a été conçue pour toute personne souhaitant transformer une idée en une entreprise viable et pérenne.</p>
+                </div>
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg border border-neutral-border text-center">
+                        <i data-lucide="lightbulb" class="mx-auto h-12 w-12 text-yellow-500"></i>
+                        <h3 class="font-bold mt-4">Porteurs de projet</h3>
+                        <p class="text-sm text-indigo-800/80 mt-2">Pour structurer votre vision et acquérir une feuille de route claire.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-neutral-border text-center">
+                        <i data-lucide="briefcase" class="mx-auto h-12 w-12 text-yellow-500"></i>
+                        <h3 class="font-bold mt-4">Salariés en Reconversion</h3>
+                        <p class="text-sm text-indigo-800/80 mt-2">Pour sécuriser votre transition professionnelle vers l'indépendance.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-neutral-border text-center">
+                        <i data-lucide="trending-up" class="mx-auto h-12 w-12 text-yellow-500"></i>
+                        <h3 class="font-bold mt-4">Futurs Indépendants</h3>
+                        <p class="text-sm text-indigo-800/80 mt-2">Pour maîtriser les aspects juridiques, financiers et commerciaux du freelancing.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Programme Détaillé -->
+        <section class="py-24 bg-white">
+             <div class="container mx-auto px-6">
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-center mb-12" style="color: var(--text-dark);">Programme Détaillé par Blocs de Compétences</h2>
+                <div id="accordion-container" class="max-w-3xl mx-auto space-y-4">
+                    <div class="accordion-item bg-white border border-neutral-border rounded-lg">
+                        <div class="accordion-item-header p-6 flex justify-between items-center">
+                            <h3 class="font-bold text-lg text-indigo-900">Bloc 1 : De l'Idée au Business Model (15h)</h3>
+                            <i data-lucide="chevron-down" class="transition-transform"></i>
+                        </div>
+                        <div class="accordion-item-body">
+                            <ul class="p-6 pt-0 space-y-2 text-indigo-800/80 list-disc list-inside">
+                                <li>**Analyse de marché :** Identifier sa cible, analyser la concurrence et valider le potentiel de son idée.</li>
+                                <li>**Business Model Canvas :** Modéliser son projet de A à Z (clients, proposition de valeur, canaux, revenus...).</li>
+                                <li>**Proposition de valeur :** Définir une offre unique et différenciante qui répond à un vrai besoin.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-white border border-neutral-border rounded-lg">
+                        <div class="accordion-item-header p-6 flex justify-between items-center">
+                            <h3 class="font-bold text-lg text-indigo-900">Bloc 2 : Structuration Juridique et Administrative (10h)</h3>
+                            <i data-lucide="chevron-down" class="transition-transform"></i>
+                        </div>
+                        <div class="accordion-item-body">
+                            <ul class="p-6 pt-0 space-y-2 text-indigo-800/80 list-disc list-inside">
+                                <li>**Choix du statut :** Comprendre les différences (Micro-entreprise, SASU, EURL) et choisir le plus adapté.</li>
+                                <li>**Implications fiscales et sociales :** TVA, impôts, cotisations sociales, protection du dirigeant.</li>
+                                <li>**Démarches de création :** Les étapes de l'immatriculation, de la rédaction des statuts au dépôt au greffe.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-white border border-neutral-border rounded-lg">
+                        <div class="accordion-item-header p-6 flex justify-between items-center">
+                            <h3 class="font-bold text-lg text-indigo-900">Bloc 3 : Prévisions Financières et Financement (15h)</h3>
+                            <i data-lucide="chevron-down" class="transition-transform"></i>
+                        </div>
+                        <div class="accordion-item-body">
+                            <ul class="p-6 pt-0 space-y-2 text-indigo-800/80 list-disc list-inside">
+                                <li>**Business Plan financier :** Élaborer son prévisionnel (compte de résultat, plan de trésorerie, bilan).</li>
+                                <li>**Pilotage :** Calculer son seuil de rentabilité, ses marges et fixer ses prix de vente.</li>
+                                <li>**Stratégie de financement :** Identifier et solliciter les aides (ACRE, BPI, prêts d'honneur, etc.).</li>
+                            </ul>
+                        </div>
+                    </div>
+                     <div class="accordion-item bg-white border border-neutral-border rounded-lg">
+                        <div class="accordion-item-header p-6 flex justify-between items-center">
+                            <h3 class="font-bold text-lg text-indigo-900">Bloc 4 : Stratégie Marketing et Vente (10h)</h3>
+                            <i data-lucide="chevron-down" class="transition-transform"></i>
+                        </div>
+                        <div class="accordion-item-body">
+                            <ul class="p-6 pt-0 space-y-2 text-indigo-800/80 list-disc list-inside">
+                                <li>**Acquisition client :** Définir sa stratégie marketing pour trouver ses premiers clients (en ligne et hors ligne).</li>
+                                <li>**Argumentaire commercial :** Apprendre à présenter son offre et à convaincre ses prospects.</li>
+                                <li>**Pitch :** Atelier pratique pour présenter son projet de manière claire, concise et impactante.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Qualiopi Info Sections -->
+        <section class="py-24">
+            <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Méthodes & Évaluation -->
+                <div>
+                    <h3 class="font-serif text-2xl font-bold mb-6">Pédagogie et Évaluation</h3>
+                    <div class="space-y-4">
+                        <div class="bg-white p-6 rounded-lg border border-neutral-border">
+                            <h4 class="font-bold text-indigo-900">Méthodes Pédagogiques Mobilisées</h4>
+                            <p class="text-sm text-indigo-800/80 mt-2">Notre approche est résolument pratique : cours interactifs, ateliers de co-construction sur votre projet, études de cas concrets, et interventions de professionnels pour un retour d'expérience direct du terrain.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg border border-neutral-border">
+                            <h4 class="font-bold text-indigo-900">Modalités d'Évaluation</h4>
+                            <p class="text-sm text-indigo-800/80 mt-2">L'acquisition des compétences est validée par un contrôle continu (quizz, exercices pratiques) et la réalisation d'un dossier de création d'entreprise complet (business plan, stratégie marketing) qui sera présenté devant un jury en fin de parcours.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Infos Pratiques -->
+                <div>
+                    <h3 class="font-serif text-2xl font-bold mb-6">Informations Pratiques</h3>
+                    <div class="bg-white p-6 rounded-lg border border-neutral-border space-y-4">
+                        <div>
+                            <h4 class="font-bold text-indigo-900">Certification Visée</h4>
+                            <p class="text-sm text-indigo-800/80">Attestation de Compétences "Créateur d'Entreprise".</p>
+                        </div>
+                        <hr class="border-neutral-border">
+                        <div>
+                            <h4 class="font-bold text-indigo-900">Durée & Modalités</h4>
+                            <p class="text-sm text-indigo-800/80">50 heures en 100% présentiel, en cours du soir (18h30-21h30) et le samedi (10h-13h) à Bordeaux, dans des espaces de co-working premiums.</p>
+                        </div>
+                        <hr class="border-neutral-border">
+                         <div>
+                            <h4 class="font-bold text-indigo-900">Délais et Modalités d'Accès</h4>
+                            <p class="text-sm text-indigo-800/80">L'inscription est ouverte jusqu'à 15 jours avant le début de la session. L'admission est finalisée après validation de votre candidature via le formulaire et un entretien de positionnement individuel.</p>
+                        </div>
+                        <hr class="border-neutral-border">
+                        <div>
+                            <h4 class="font-bold text-indigo-900">Accessibilité</h4>
+                            <p class="text-sm text-indigo-800/80">Nous nous engageons à rendre nos formations accessibles. Contactez notre référent handicap pour discuter des aménagements possibles.</p>
+                        </div>
+                         <hr class="border-neutral-border">
+                        <div>
+                            <h4 class="font-bold text-indigo-900">Contacts</h4>
+                            <p class="text-sm text-indigo-800/80">Pour toute question pédagogique ou administrative, contactez-nous à <a href="mailto:contact@lescoursdusoir.fr" class="text-yellow-600 hover:underline">contact@lescoursdusoir.fr</a> ou au 05 XX XX XX XX.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tarifs -->
+        <section class="pb-24">
+             <div class="container mx-auto px-6">
+                <div class="max-w-2xl mx-auto bg-white p-8 rounded-2xl border border-neutral-border shadow-lg text-center">
+                    <h2 class="font-serif text-3xl font-bold mb-2" style="color: var(--text-dark);">Modalités et Financement</h2>
+                    <p class="font-bold text-4xl my-4" style="color: var(--text-dark);">2 490 € <span class="text-xl font-normal text-indigo-800/80">TTC</span></p>
+                    <p class="font-semibold text-yellow-600 bg-yellow-500/10 px-4 py-2 rounded-md inline-block">Prix Spécial Lancement (Autofinancement)</p>
+                     <div class="text-sm text-indigo-800/80 mt-6 space-y-3 text-left">
+                        <p><strong>Financement CPF/OPCO :</strong> Nous sommes en cours de certification Qualiopi. Ce prix sera ajusté pour le financement public dès obtention de la certification.</p>
+                     </div>
+                     <div class="mt-8">
+                        <button id="open-modal-button-2" class="cta-button font-bold px-8 py-4 text-lg">Démarrer ma candidature</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer style="background-color: var(--text-dark);" class="text-gray-300 py-16">
+        <div class="container mx-auto px-6 text-center text-sm">
+            <p>&copy; 2025 LES COURS DU SOIR - SAS au capital de 1000€</p>
+            <p class="mt-2">Président : Mohamed Nor BOUCHETARA</p>
+            <p>Siège Social : 6 Rue Ferdinand Antoune, 33600 PESSAC</p>
+            <p>R.C.S. Bordeaux 984 039 933</p>
+        </div>
+    </footer>
+    
+    <!-- Modal -->
+    <div id="application-modal" class="modal-overlay fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none">
+        <div class="modal-content bg-white rounded-2xl w-full max-w-3xl max-h-[95vh] overflow-y-auto relative transform scale-95 opacity-0">
+             <div class="p-6 md:p-8 border-b border-neutral-border sticky top-0 bg-white z-10">
+                 <h2 class="font-serif text-2xl md:text-3xl font-bold" style="color: var(--text-dark);">Validation de votre profil</h2>
+                 <p class="text-indigo-800/80">Formation Entrepreneuriat & Création d'entreprise</p>
+                 <button id="close-modal-button" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800"><i data-lucide="x" class="h-6 w-6"></i></button>
+            </div>
+            <div id="form-container" class="p-6 md:p-8">
+                <form id="application-form" class="space-y-6">
+                    <div>
+                        <label for="fullName" class="block font-medium mb-1">Nom & Prénom *</label>
+                        <input type="text" id="fullName" name="fullName" class="form-input" required>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                         <div>
+                            <label for="email" class="block font-medium mb-1">Email *</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="phone" class="block font-medium mb-1">Téléphone *</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" required>
+                        </div>
+                    </div>
+                    
+                    <hr class="border-neutral-border">
+
+                    <div>
+                        <p class="font-bold text-lg mb-2">Positionnement Technique</p>
+                        <fieldset class="space-y-4">
+                            <div>
+                                <legend class="font-medium mb-2">Confirmez-vous avoir une idée de projet d'entreprise ou une forte motivation à entreprendre ? *</legend>
+                                <div class="flex items-center space-x-4">
+                                    <label class="form-radio-label flex items-center space-x-2 cursor-pointer p-3 border-neutral-border"><input type="radio" name="prerequis" value="oui" required class="form-radio"><span>Oui</span></label>
+                                    <label class="form-radio-label flex items-center space-x-2 cursor-pointer p-3 border-neutral-border"><input type="radio" name="prerequis" value="non" required class="form-radio"><span>Non</span></label>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="motivation" class="block font-medium mb-1">Décrivez brièvement votre projet ou votre motivation pour cette formation (500 caractères max) *</label>
+                                <textarea id="motivation" name="motivation" rows="5" maxlength="500" class="form-textarea" required></textarea>
+                                <p id="char-count" class="text-sm text-right text-gray-500 mt-1">0 / 500</p>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <hr class="border-neutral-border">
+
+                    <div>
+                        <p class="font-bold text-lg mb-2">Informations Complémentaires</p>
+                        <div class="space-y-4">
+                            <label class="form-checkbox-label">
+                                <input type="checkbox" name="psh" class="form-checkbox mt-1">
+                                <span>Je souhaite signaler un besoin d'adaptation lié à une situation de handicap pour mon parcours. (Le référent handicap vous contactera pour un aménagement).</span>
+                            </label>
+                            <label class="form-checkbox-label">
+                                <input type="checkbox" id="declaration" name="declaration" class="form-checkbox mt-1" required>
+                                <span>* J'ai pris connaissance des prérequis, des objectifs, du prix (2 490 € TTC) et des délais d'accès pour la session d'Octobre 2025.</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-4 text-right">
+                        <button type="submit" id="submit-button" class="cta-button font-bold px-8 py-3">Envoyer ma candidature</button>
+                    </div>
+                </form>
+            </div>
+             <div id="success-message" class="hidden p-8 text-center">
+                 <i data-lucide="check-circle" class="mx-auto h-16 w-16 text-teal-500"></i>
+                 <h3 class="font-serif text-2xl font-bold mt-4">Candidature envoyée !</h3>
+                 <p class="text-indigo-800/80 mt-2 max-w-md mx-auto">Merci. Nous avons bien reçu votre demande. Un membre de notre équipe vous contactera sous 48h pour planifier un entretien de positionnement individuel et valider votre candidature.</p>
+                 <button id="close-success-button" class="mt-6 text-sm font-semibold text-indigo-800 hover:underline">Fermer</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        
+        // --- Modal Logic ---
+        const openModalButton = document.getElementById('open-modal-button');
+        const openModalButton2 = document.getElementById('open-modal-button-2');
+        const closeModalButton = document.getElementById('close-modal-button');
+        const closeSuccessButton = document.getElementById('close-success-button');
+        const modal = document.getElementById('application-modal');
+        const modalContent = modal.querySelector('.modal-content');
+
+        function openModal() {
+            modal.classList.remove('pointer-events-none');
+            modal.classList.remove('opacity-0');
+            modalContent.classList.remove('scale-95', 'opacity-0');
+        }
+
+        function closeModal() {
+            modal.classList.add('pointer-events-none');
+            modal.classList.add('opacity-0');
+            modalContent.classList.add('scale-95', 'opacity-0');
+        }
+
+        openModalButton.addEventListener('click', openModal);
+        openModalButton2.addEventListener('click', openModal);
+        closeModalButton.addEventListener('click', closeModal);
+        closeSuccessButton.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // --- Accordion Logic ---
+        document.querySelectorAll('.accordion-item-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const body = header.nextElementSibling;
+                const icon = header.querySelector('svg');
+                
+                header.parentElement.classList.toggle('border-yellow-500');
+                if (icon) {
+                    icon.classList.toggle('rotate-180');
+                }
+                if (body.style.maxHeight) {
+                    body.style.maxHeight = null;
+                } else {
+                    body.style.maxHeight = body.scrollHeight + "px";
+                }
+            });
+        });
+
+        // --- Header Scroll Logic ---
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+
+        // --- Form Logic ---
+        const form = document.getElementById('application-form');
+        const formContainer = document.getElementById('form-container');
+        const successMessage = document.getElementById('success-message');
+        const motivationTextarea = document.getElementById('motivation');
+        const charCount = document.getElementById('char-count');
+
+        motivationTextarea.addEventListener('input', () => {
+            const count = motivationTextarea.value.length;
+            charCount.textContent = `${count} / 500`;
+        });
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            formContainer.classList.add('hidden');
+            successMessage.classList.remove('hidden');
+            lucide.createIcons(); // Re-render icons in success message
+        });
+
+    </script>
+</body>
+</html>
+
+
